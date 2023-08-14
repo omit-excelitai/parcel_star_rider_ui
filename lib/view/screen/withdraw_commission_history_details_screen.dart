@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parcel_star_rider_ui/view/screen/all_parcel_screen.dart';
 import '../../model/parcel_model.dart';
 import '../../utils/app_dimension.dart';
 
@@ -58,7 +59,7 @@ class _WithdrawCommissionHistoryDetailsScreenState extends State<WithdrawCommiss
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-
+                      SizedBox(height: 10,),
                       /// Withdraw Amount
                       Row(
                         children: [
@@ -146,35 +147,54 @@ class _WithdrawCommissionHistoryDetailsScreenState extends State<WithdrawCommiss
                         ],
                       ),
                       SizedBox(height: 15,),
+                      Row(
+                        children: [
+                          Expanded(
+                            flex: 4,
+                            child: Text(
+                              "Note",
+                              style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 14, context: context),  color: Color(0xff666666), fontWeight: FontWeight.w400),
+                            ),),
+                          Expanded(
+                            flex: 1,
+                            child: Text(
+                              ":",
+                              style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 14, context: context),  color: Color(0xff0B4461), fontWeight: FontWeight.w500),
+                              textAlign: TextAlign.center,),),
+                          Expanded(
+                              flex: 4,
+                              child: Text("Note", style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 14, context: context),  color: Color(0xff454545), fontWeight: FontWeight.w600),)),
+                        ],
+                      ),
 
                       /// For Emergency Note
-                      Text(
-                        "Emergency Note",
-                        style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 14, context: context),  color: Color(0xff666666), fontWeight: FontWeight.w400),),
-                      SizedBox(height: 6,),
-                      TextFormField(
-                        maxLines: null,
-                        cursorColor: Color(0xff666666),
-                        keyboardType: TextInputType.text,
-                        textInputAction: TextInputAction.done,
-                        controller: _emergencyNoteController,
-                        style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 14, context: context),  color: Color(0xff666666), fontWeight: FontWeight.w400),
-                        decoration: InputDecoration(
-                          isDense: true,
-                          contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-                          hintText: "Request note",
-                          hintStyle: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 14, context: context),  color: Color(0xffBABABA), fontWeight: FontWeight.w300),
-                          border: OutlineInputBorder(
-                              borderSide: BorderSide(width: 1, color: Color(0xffE0E0E0)),
-                              borderRadius: BorderRadius.circular(5)),
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(width: 1, color: Color(0xffE0E0E0)),
-                              borderRadius: BorderRadius.circular(5)),
-                          focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(width: 1, color: Color(0xffE0E0E0)),
-                              borderRadius: BorderRadius.circular(5)),
-                        ),
-                      ),
+                      // Text(
+                      //   "Emergency Note",
+                      //   style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 14, context: context),  color: Color(0xff666666), fontWeight: FontWeight.w400),),
+                      // SizedBox(height: 6,),
+                      // TextFormField(
+                      //   maxLines: null,
+                      //   cursorColor: Color(0xff666666),
+                      //   keyboardType: TextInputType.text,
+                      //   textInputAction: TextInputAction.done,
+                      //   controller: _emergencyNoteController,
+                      //   style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 14, context: context),  color: Color(0xff666666), fontWeight: FontWeight.w400),
+                      //   decoration: InputDecoration(
+                      //     isDense: true,
+                      //     contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                      //     hintText: "Request note",
+                      //     hintStyle: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 14, context: context),  color: Color(0xffBABABA), fontWeight: FontWeight.w300),
+                      //     border: OutlineInputBorder(
+                      //         borderSide: BorderSide(width: 1, color: Color(0xffE0E0E0)),
+                      //         borderRadius: BorderRadius.circular(5)),
+                      //     enabledBorder: OutlineInputBorder(
+                      //         borderSide: BorderSide(width: 1, color: Color(0xffE0E0E0)),
+                      //         borderRadius: BorderRadius.circular(5)),
+                      //     focusedBorder: OutlineInputBorder(
+                      //         borderSide: BorderSide(width: 1, color: Color(0xffE0E0E0)),
+                      //         borderRadius: BorderRadius.circular(5)),
+                      //   ),
+                      // ),
                       // SizedBox(height: 25,),
                       //
                       // /// For Send Button
@@ -200,12 +220,12 @@ class _WithdrawCommissionHistoryDetailsScreenState extends State<WithdrawCommiss
 
                 /// For History Table
                 SizedBox(height: 30,),
-                Text("Parcel", style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 16, context: context),  color: Color(0xff0B4460), fontWeight: FontWeight.w600),),
+                Text("Commission List", style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 16, context: context),  color: Color(0xff0B4460), fontWeight: FontWeight.w600),),
                 SizedBox(height: 10,),
 
                 /// Table Header
                 Container(
-                  padding: EdgeInsets.all(12),
+                  padding: EdgeInsets.all(8),
                   decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),
                     color: Color(0xff0B4461),),
                   child: Row(
@@ -213,35 +233,35 @@ class _WithdrawCommissionHistoryDetailsScreenState extends State<WithdrawCommiss
 
                       /// Serial No.
                       Expanded(
-                        flex: 3,
+                        flex: 1,
                         child: Container(
                           alignment: Alignment.center,
                           child: Text(
                             "SL. No",
                             style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 16, context: context),  color: Color(0xffffffff), fontWeight: FontWeight.w400),
-                          ),
+                            textAlign: TextAlign.center,),
                         ),),
 
-                      /// Invoice
+                      /// Commission Invoice
                       Expanded(
                         flex: 3,
                         child: Container(
                           alignment: Alignment.center,
                           child: Text(
-                            "Invoice",
+                            "Invoice ID",
                             style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 16, context: context),  color: Color(0xffffffff), fontWeight: FontWeight.w400),
-                          ),
+                            textAlign: TextAlign.center,),
                         ),),
 
                       /// Amount
                       Expanded(
-                        flex: 3,
+                        flex: 2,
                         child: Container(
                           alignment: Alignment.center,
                           child: Text(
                             "Amount",
                             style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 16, context: context),  color: Color(0xffffffff), fontWeight: FontWeight.w400),
-                          ),
+                            textAlign: TextAlign.center, ),
                         ),),
 
                       /// Type
@@ -252,7 +272,18 @@ class _WithdrawCommissionHistoryDetailsScreenState extends State<WithdrawCommiss
                           child: Text(
                             "Type",
                             style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 16, context: context),  color: Color(0xffffffff), fontWeight: FontWeight.w400),
-                          ),
+                            textAlign: TextAlign.center,),
+                        ),),
+
+                      /// View
+                      Expanded(
+                        flex: 2,
+                        child: Container(
+                          alignment: Alignment.center,
+                          child: Text(
+                            "View",
+                            style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 16, context: context),  color: Color(0xffffffff), fontWeight: FontWeight.w400),
+                            textAlign: TextAlign.center, ),
                         ),),
                     ],
                   ),
@@ -266,7 +297,7 @@ class _WithdrawCommissionHistoryDetailsScreenState extends State<WithdrawCommiss
                       itemCount: parcelList.length,
                       itemBuilder: (context, index){
                         return Container(
-                          padding: EdgeInsets.all(12),
+                          padding: EdgeInsets.all(8),
                           decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),
                               border: Border.all(width: 1, color: Color(0xffE0E0E0))),
                           child: Row(
@@ -274,16 +305,16 @@ class _WithdrawCommissionHistoryDetailsScreenState extends State<WithdrawCommiss
 
                               /// Serial No
                               Expanded(
-                                flex: 3,
+                                flex: 1,
                                 child: Container(
                                   alignment: Alignment.center,
                                   child: Text(
                                     "${parcelList[index].serialNo}",
                                     style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 14, context: context),  color: Color(0xff454545), fontWeight: FontWeight.w400),
-                                  ),
+                                    textAlign: TextAlign.center,),
                                 ),),
 
-                              /// Invoice
+                              /// Commission Invoice
                               Expanded(
                                 flex: 3,
                                 child: Container(
@@ -292,18 +323,18 @@ class _WithdrawCommissionHistoryDetailsScreenState extends State<WithdrawCommiss
                                     "${parcelList[index].invoice}",
                                     style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 14, context: context),  color: Color(0xff0D99FF), fontWeight: FontWeight.w400,
                                         decoration: TextDecoration.underline, decorationColor: Color(0xff0D99FF)),
-                                  ),
+                                    textAlign: TextAlign.center, ),
                                 ),),
 
                               /// Amount
                               Expanded(
-                                flex: 3,
+                                flex: 2,
                                 child: Container(
                                   alignment: Alignment.center,
                                   child: Text(
                                     "${parcelList[index].amount}",
                                     style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 14, context: context),  color: Color(0xff454545), fontWeight: FontWeight.w400),
-                                  ),
+                                    textAlign: TextAlign.center,),
                                 ),),
 
                               /// Type
@@ -314,6 +345,24 @@ class _WithdrawCommissionHistoryDetailsScreenState extends State<WithdrawCommiss
                                   child: Text(
                                     "${parcelList[index].type}",
                                     style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 14, context: context),  color: Color(0xff454545), fontWeight: FontWeight.w400),
+                                    textAlign: TextAlign.center, ),
+                                ),),
+
+                              /// View
+                              Expanded(
+                                flex: 2,
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  child: InkWell(
+                                    onTap: (){
+                                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AllParcelScreen()));
+                                    },
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(horizontal: 5),
+                                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),
+                                          border: Border.all(width: 1, color: Color(0xffE0E0E0))),
+                                      child: Icon(Icons.visibility_outlined,),
+                                    ),
                                   ),
                                 ),),
                             ],

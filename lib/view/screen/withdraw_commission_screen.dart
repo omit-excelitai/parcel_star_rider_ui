@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:parcel_star_rider_ui/view/screen/all_parcel_screen.dart';
+import 'package:parcel_star_rider_ui/view/screen/view_withdraw_commission.dart';
 import 'package:parcel_star_rider_ui/view/screen/withdraw_commission_history_details_screen.dart';
 import '../../model/withdraw_history_model.dart';
 import '../../utils/app_dimension.dart';
@@ -135,7 +135,7 @@ class _WithdrawCommissionScreenState extends State<WithdrawCommissionScreen> {
                                 /// View Button
                                 InkWell(
                                   onTap: (){
-                                    Navigator.of(context).pushNamed(AllParcelScreen.routeName);
+                                    Navigator.of(context).pushNamed(ViewWithdrawCommissionScreen.routeName);
                                   },
                                   child: Container(
                                     padding: EdgeInsets.symmetric(horizontal: 5),
@@ -207,7 +207,7 @@ class _WithdrawCommissionScreenState extends State<WithdrawCommissionScreen> {
                 
                 /// Table Header
                 Container(
-                  padding: EdgeInsets.all(12),
+                  padding: EdgeInsets.all(8),
                   decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),
                     color: Color(0xff0B4461),),
                   child: Row(
@@ -221,7 +221,7 @@ class _WithdrawCommissionScreenState extends State<WithdrawCommissionScreen> {
                           child: Text(
                             "Date & Time",
                             style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 16, context: context),  color: Color(0xffffffff), fontWeight: FontWeight.w400),
-                          ),
+                            textAlign: TextAlign.center,),
                         ),),
 
                       /// Payment Invoice
@@ -232,7 +232,7 @@ class _WithdrawCommissionScreenState extends State<WithdrawCommissionScreen> {
                           child: Text(
                             "Payment Invoice",
                             style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 16, context: context),  color: Color(0xffffffff), fontWeight: FontWeight.w400),
-                          ),
+                            textAlign: TextAlign.center,),
                         ),),
 
                       /// Amount
@@ -243,7 +243,7 @@ class _WithdrawCommissionScreenState extends State<WithdrawCommissionScreen> {
                           child: Text(
                             "Amount",
                             style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 16, context: context),  color: Color(0xffffffff), fontWeight: FontWeight.w400),
-                          ),
+                            textAlign: TextAlign.center, ),
                         ),),
 
                       /// Status
@@ -265,7 +265,7 @@ class _WithdrawCommissionScreenState extends State<WithdrawCommissionScreen> {
                           child: Text(
                             "View",
                             style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 16, context: context),  color: Color(0xffffffff), fontWeight: FontWeight.w400),
-                          ),
+                            textAlign: TextAlign.center,),
                         ),),
                     ],
                   ),
@@ -279,7 +279,7 @@ class _WithdrawCommissionScreenState extends State<WithdrawCommissionScreen> {
                     itemCount: withdrawHistoryList.length,
                       itemBuilder: (context, index){
                     return Container(
-                      padding: EdgeInsets.all(12),
+                      padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),
                         border: Border.all(width: 1, color: Color(0xffE0E0E0))),
                       child: Row(
@@ -293,7 +293,7 @@ class _WithdrawCommissionScreenState extends State<WithdrawCommissionScreen> {
                               child: Text(
                                 "${withdrawHistoryList[index].dateTime}",
                                 style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 14, context: context),  color: Color(0xff454545), fontWeight: FontWeight.w400),
-                              ),
+                                textAlign: TextAlign.center,),
                             ),),
 
                           /// Payment Invoice
@@ -305,7 +305,7 @@ class _WithdrawCommissionScreenState extends State<WithdrawCommissionScreen> {
                                 "${withdrawHistoryList[index].paymentInvoice}",
                                 style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 14, context: context),  color: Color(0xff0D99FF), fontWeight: FontWeight.w400,
                                 decoration: TextDecoration.underline, decorationColor: Color(0xff0D99FF)),
-                              ),
+                                textAlign: TextAlign.center,),
                             ),),
 
                           /// Amount
@@ -316,7 +316,7 @@ class _WithdrawCommissionScreenState extends State<WithdrawCommissionScreen> {
                               child: Text(
                                 "${withdrawHistoryList[index].amount}",
                                 style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 14, context: context),  color: Color(0xff454545), fontWeight: FontWeight.w400),
-                              ),
+                                textAlign: TextAlign.center,),
                             ),),
 
                           /// Status
@@ -327,7 +327,7 @@ class _WithdrawCommissionScreenState extends State<WithdrawCommissionScreen> {
                               child: Text(
                                 "${withdrawHistoryList[index].status}",
                                 style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 14, context: context),  color: withdrawHistoryList[index].status == 'Pending'?Color(0xffCAA532):Color(0xff17C13C), fontWeight: FontWeight.w400),
-                              ),
+                                textAlign: TextAlign.center,),
                             ),),
 
                           /// View

@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:parcel_star_rider_ui/model/parcel_model.dart';
 import '../../utils/app_dimension.dart';
 
-class AllParcelScreen extends StatefulWidget {
-  static const String routeName = '/all_parcel_screen';
-  AllParcelScreen({super.key});
+class ViewWithdrawCommissionScreen extends StatefulWidget {
+  static const String routeName = '/view_withdraw_commission';
+  ViewWithdrawCommissionScreen({super.key});
 
   @override
-  State<AllParcelScreen> createState() => _AllParcelScreenState();
+  State<ViewWithdrawCommissionScreen> createState() => _ViewWithdrawCommissionScreenState();
 }
 
-class _AllParcelScreenState extends State<AllParcelScreen> {
+class _ViewWithdrawCommissionScreenState extends State<ViewWithdrawCommissionScreen> {
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class _AllParcelScreenState extends State<AllParcelScreen> {
         ),
         backgroundColor: Color(0xff0B4461),
         title: Text(
-          "Parcel History",
+          "View Withdraw Commission",
           style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 16, context: context),  color: Colors.white, fontWeight: FontWeight.w500),
         ),
       ),
@@ -43,7 +43,7 @@ class _AllParcelScreenState extends State<AllParcelScreen> {
                 SizedBox(height: 20,),
 
                 /// For History Table
-                Text("Parcel List", style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 16, context: context),  color: Color(0xff0B4460), fontWeight: FontWeight.w600),),
+                Text("Total Commission", style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 16, context: context),  color: Color(0xff0B4460), fontWeight: FontWeight.w600),),
                 SizedBox(height: 10,),
 
                 /// Table Header
@@ -62,49 +62,39 @@ class _AllParcelScreenState extends State<AllParcelScreen> {
                           child: Text(
                             "SL. No",
                             style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 16, context: context),  color: Color(0xffffffff), fontWeight: FontWeight.w400),
-                            textAlign: TextAlign.center,),
+                            textAlign: TextAlign.center,
+                          ),
                         ),),
 
-                      /// Invoice ID
+                      /// Commission Invoice
                       Expanded(
                         flex: 3,
                         child: Container(
                           alignment: Alignment.center,
                           child: Text(
-                            "Invoice ID",
+                            "Commission Invoice",
                             style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 16, context: context),  color: Color(0xffffffff), fontWeight: FontWeight.w400),
                             textAlign: TextAlign.center,),
                         ),),
 
-                      /// Order ID
+                      /// Amount
                       Expanded(
-                        flex: 3,
+                        flex: 2,
                         child: Container(
                           alignment: Alignment.center,
                           child: Text(
-                            "Order ID",
+                            "Amount",
                             style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 16, context: context),  color: Color(0xffffffff), fontWeight: FontWeight.w400),
                             textAlign: TextAlign.center,),
                         ),),
 
-                      /// Parcel Weight
+                      /// Type
                       Expanded(
                         flex: 3,
                         child: Container(
                           alignment: Alignment.center,
                           child: Text(
-                            "Parcel Weight",
-                            style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 16, context: context),  color: Color(0xffffffff), fontWeight: FontWeight.w400),
-                            textAlign: TextAlign.center,),
-                        ),),
-
-                      /// Collection Amount
-                      Expanded(
-                        flex: 3,
-                        child: Container(
-                          alignment: Alignment.center,
-                          child: Text(
-                            "Collection Amount",
+                            "Type",
                             style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 16, context: context),  color: Color(0xffffffff), fontWeight: FontWeight.w400),
                             textAlign: TextAlign.center,),
                         ),),
@@ -137,7 +127,7 @@ class _AllParcelScreenState extends State<AllParcelScreen> {
                                     textAlign: TextAlign.center,),
                                 ),),
 
-                              /// Invoice
+                              /// Commission Invoice
                               Expanded(
                                 flex: 3,
                                 child: Container(
@@ -149,37 +139,26 @@ class _AllParcelScreenState extends State<AllParcelScreen> {
                                     textAlign: TextAlign.center,),
                                 ),),
 
-                              /// Order ID
+                              /// Amount
                               Expanded(
-                                flex: 3,
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    "54542",
-                                    style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 14, context: context),  color: Color(0xff454545), fontWeight: FontWeight.w400),
-                                  textAlign: TextAlign.center,),
-                                ),),
-
-                              /// Parcel Weight
-                              Expanded(
-                                flex: 3,
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    "2 Kg",
-                                    style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 14, context: context),  color: Color(0xff454545), fontWeight: FontWeight.w400),
-                                    textAlign: TextAlign.center,),
-                                ),),
-
-                              /// Collection Amount
-                              Expanded(
-                                flex: 3,
+                                flex: 2,
                                 child: Container(
                                   alignment: Alignment.center,
                                   child: Text(
                                     "${parcelList[index].amount}",
                                     style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 14, context: context),  color: Color(0xff454545), fontWeight: FontWeight.w400),
                                     textAlign: TextAlign.center,),
+                                ),),
+
+                              /// Type
+                              Expanded(
+                                flex: 3,
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    "${parcelList[index].type}",
+                                    style: TextStyle(fontSize: AppDimension.sizeWithHight(figmaSize: 14, context: context),  color: Color(0xff454545), fontWeight: FontWeight.w400),
+                                    textAlign: TextAlign.center, ),
                                 ),),
                             ],
                           ),
